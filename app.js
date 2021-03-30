@@ -16,7 +16,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
+mongoose.connect("mongodb://mongodb+srv://test:ssssssss@cluster0.df7aw.mongodb.net/blogDB", {useNewUrlParser: true});
 
 const postSchema = {
   title: String,
@@ -74,7 +74,16 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
 
+app.get("/login",function(req,res){
+  res.render("login");
+});
 
-app.listen(3000 || process.env.PORT, function() {
+app.get("/SignUp",function(req,res){
+  res.render("SignUp");
+})
+
+
+
+app.listen(process.env.PORT || 3000, function() {
   console.log("Server started on port 3000");
 });
